@@ -53,6 +53,6 @@ public class UIManager : MonoBehaviour
 
     public void AtualizarSequencia(string nomeDaCor)
     {
-        sequenciaTexto.text = nomeDaCor + " ";
+        sequenciaTexto.text += nomeDaCor + " ";
     }
 }

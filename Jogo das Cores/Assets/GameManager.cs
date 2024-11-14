@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GerarSequencia();
+Debug.Log("indice da cor atual: " + GetCorDaVez());
     }
 
     void GerarSequencia()
@@ -47,6 +48,11 @@ public class GameManager : MonoBehaviour
                 UIManager.instance.AtualizarAcertos(acertos);
                 GerarSequencia();
             }
+
+            else
+            {
+                UIManager.instance.AtualizarSequencia(GetProximaCorNome());
+            }
         }
         else
         {
@@ -54,5 +60,17 @@ public class GameManager : MonoBehaviour
             UIManager.instance.AtualizarErros(erros);
             GerarSequencia();
         }
+    }
+    public int GetCorDaVez()
+    {
+        return corDaVez < sequencia.Length ? sequencia[corDaVez] : -1;
+    }
+
+
+
+    public string GetProximaCorNome()
+    {
+
+        return corDaVez < sequencia.Length ? nomes[sequencia[corDaVez]] : null;
     }
 }
